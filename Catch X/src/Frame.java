@@ -6,6 +6,7 @@ import java.awt.Dimension;
 
 public class Frame extends JFrame {
 
+	
 	private JButton X_agent;
 	private JPanel panel;
 
