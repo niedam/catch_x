@@ -14,7 +14,8 @@ public class Button_agent extends JButton {
 	}
 	
 	public int getAgentSize() {
-		return size;
+		int result = size;
+		return result;
 	}
 	
 }
