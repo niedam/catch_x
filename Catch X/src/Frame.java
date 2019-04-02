@@ -1,37 +1,42 @@
 import javax.swing.JFrame;
-import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Insets;
 
 
-public class Frame extends JFrame {
+public class Frame extends JFrame implements ActionListener {
 
-	private JButton X_agent;
-	private JPanel panel;
+	Button_agent X_agent;
+	Container pane;
 	
 	public Frame() {
 		super("Catch X");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		setVisible(true);
 		setMinimumSize(new Dimension (500, 500));
 		
-		Container pane = getContentPane();
+		pane = getContentPane();
 		pane.setLayout(null);
 		
-		X_agent = new JButton("X");
-		
+		X_agent = new Button_agent();
+		X_agent.addActionListener(this);
 		pane.add(X_agent);
-		//pane.setBackground(Color.BLACK);
-		
-		
-		Insets insets = pane.getInsets();
-		
-		X_agent.setBounds(10 + insets.left, 20 + insets.top, 45, 45);
-		
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		
+		//
+		if (source == X_agent) {
+			X_agent.changePosition(80, 80);
+		}
+	}
+	
 }
